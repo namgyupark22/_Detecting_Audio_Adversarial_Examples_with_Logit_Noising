@@ -6,12 +6,15 @@ In thi repository, we upload Det_DeepSpeech.py, logit_analysis_ACSAC.ipyb, and a
 
 #### Det_DeepSpeech.py
 
-We generate multiple gaussian noises and detect aduio adversarial examples in do_sing_file_inference function
+In this file, we generate multiple Gaussian noises and add them to the result of acoustic model in the ASR system (called logits). 
+Each logits sequence is transcribed to character-level transcription using beam-search decoding. After that, we calculate the Character Error Rate (CER) for original logits transcription and each noised logits transcription. Finally, the sum of each CER is over than threshold, we consider it an attack. Below figure is overall architecture we proposed.
 ![ex_screenshot](./figs/logit_noising_architecture.png)
+
 
 #### logit_analysis_ACSAC.ipyb
 
-We select noise & the number of noised instances to detect audio adversarial example. This file help user to calculate the 1-k logit-gap distribution and 1-k inversion probability.
+For generating robust detection system, we select appropriate noise distribution. 
+This file help us to calculate the 1-k logit-gap distribution and 1-k inversion probability.
 
 
 ![ex_screenshot](./figs/distribution.png)
@@ -19,15 +22,14 @@ We select noise & the number of noised instances to detect audio adversarial exa
 Finally, using 1-k inversion probability, we can caculate total inversion probability
 ![ex_screenshot](./figs/inversion_probability.png)
 
+To execute our detection system, you have to install a native_client file[native_client]https://github.com/mozilla/DeepSpeech/blob/v0.1.1/native_client/README.md
+However, the artifact expired, we should rebuid it. 
 
+Enter the DeepSpeech original github site [DeepSpeech_v0.1.1]https://github.com/mozilla/DeepSpeech/tree/v0.1.1
+You can install deepspeech by following the steps from the link above.
 
-If you already rebuild DeepSpeech v0.1.1 execute det_DeepSpeech.py
-
+If you rebuild DeepSpeech v0.1.1 execute det_DeepSpeech.py
 ```
 python3 python -u det_DeepSpeech.py --train_files "$any_file" --dev_files "$any_file" --test_files "$any_file" \
   --train_batch_size 1 \ --dev_batch_size 1 \ --test_batch_size 1 \  --n_hidden 2048 \ --epoch 1 \ --checkpoint_dir "$checkpoint_dir" \
 ```
-
-If you have to build DeepSpeech v0.1.1, follow this website process[DeepSpeech_v0.1.1]https://github.com/mozilla/DeepSpeech/tree/v0.1.1
-
-
