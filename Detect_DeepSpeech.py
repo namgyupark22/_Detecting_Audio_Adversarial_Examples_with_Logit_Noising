@@ -563,7 +563,9 @@ def do_single_file_inference(input_file_path):
         checkpoint_path = checkpoint.model_checkpoint_path
         saver.restore(session, checkpoint_path)
         
-        file_path = input_file_path + "0"  + ".wav"
+        i =0
+        
+        file_path = input_file_path + str(i)  + ".wav"
         mfcc = audiofile_to_input_vector(file_path, n_input, n_context)
     
         output,logits = session.run([outputs['outputs'],outputs['logits']], feed_dict = {
@@ -624,11 +626,11 @@ def do_single_file_inference(input_file_path):
         #text6 = ndarray_to_text(noise_output6[0][1], alphabet)
         #text7 = ndarray_to_text(noise_output7[0][1], alphabet)
         
-        #print("%d: %s"%(i,text))
-        #print("%d: %s"%(i,text0))
-        #print("%d: %s"%(i,text1))
-        #print("%d: %s"%(i,text2))
-        #print("%d: %s"%(i,text3))
+        print("original transcription result: %s"%(text))
+        print("noised transcription result0 %s"%(text0))
+        print("noised transcription result1 %s"%(text1))
+        print("noised transcription result2 %s"%(text2))
+        print("noised transcription result3 %s"%(text3))
         #print("%d: %s"%(i,text4))
         #print("%d: %s"%(i,text5))
         #print("%d: %s"%(i,text6))
@@ -640,8 +642,9 @@ def do_single_file_inference(input_file_path):
         cer_2 = cer(text,text2)
         cer_3 = cer(text,text3)
         cer_total = cer_0 + cer_1 + cer_2 + cer_3
+        print("total CER is: %d"%(cer_total))
         ##if the sum of cer is over the threshold, we decide input audio as audio adversarial examples
-        if cer_total >= 240:
+        if cer_total < 240:
             print(text)
         else:
             print("Adversarial example detected!!")          
