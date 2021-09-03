@@ -44,6 +44,5 @@ You can install deepspeech by following the steps from the link above.
 
 If you rebuild DeepSpeech v0.1.1 execute Detect_DeepSpeech.py
 ```
-python3 python -u Detect_DeepSpeech.py --train_files "$any_file" --dev_files "$any_file" --test_files "$any_file" \
-  --train_batch_size 1 \ --dev_batch_size 1 \ --test_batch_size 1 \  --n_hidden 2048 \ --epoch 1 \ --checkpoint_dir "$checkpoint_dir" \
+python3 python -u Detect_DeepSpeech.py  --checkpoint_dir "$checkpoint_dir" 
 ```
