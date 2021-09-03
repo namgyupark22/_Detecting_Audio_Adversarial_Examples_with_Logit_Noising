@@ -14,6 +14,7 @@ Detect_DeepSpeech file execution environment is as follows below
 * CUDA 8
 * CUDNN 6
 * 1 Titan V GPU
+* pip3 install editdistance (*as same as DeepSpeech v0.1.1)
 
 ![ex_screenshot](./figs/logit_noising_architecture.png)
 
@@ -41,7 +42,7 @@ However, the artifact expired, we should rebuid it.
 Enter the DeepSpeech original github site [DeepSpeech_v0.1.1]https://github.com/mozilla/DeepSpeech/tree/v0.1.1
 You can install deepspeech by following the steps from the link above.
 
-If you rebuild DeepSpeech v0.1.1 execute det_DeepSpeech.py
+If you rebuild DeepSpeech v0.1.1 execute Detect_DeepSpeech.py
 ```
 python3 python -u Detect_DeepSpeech.py --train_files "$any_file" --dev_files "$any_file" --test_files "$any_file" \
   --train_batch_size 1 \ --dev_batch_size 1 \ --test_batch_size 1 \  --n_hidden 2048 \ --epoch 1 \ --checkpoint_dir "$checkpoint_dir" \
