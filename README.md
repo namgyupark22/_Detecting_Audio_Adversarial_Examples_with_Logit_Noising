@@ -30,7 +30,7 @@ https://github.com/mozilla/DeepSpeech/releases/download/v0.1.0/deepspeech-0.1.0-
 Also, DeepSpeech requires native client to execute ASR system. However, the
 native client for v0.1.1 is expired, so you should rebuild it by yourself.
 Install native client:
-https://github.com/mozilla/DeepSpeech/tree/v0.1.1/native client#readme
+https://github.com/mozilla/DeepSpeech/tree/v0.1.1/native_client#readme
 
 ### 3. Prerequisites
 
