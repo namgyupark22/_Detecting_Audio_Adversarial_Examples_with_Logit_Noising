@@ -49,10 +49,10 @@ logit_analysis_ACSAC file execution environment is as follows below
 * pip3 install numpy scipy tensorflow-gpu==1.8.0 pandas python_speech_features, matplotlib
 
 
-To execute our detection system, you have to install a native_client file[native_client]https://github.com/mozilla/DeepSpeech/blob/v0.1.1/native_client
+To execute our detection system, you have to install a native_client file https://github.com/mozilla/DeepSpeech/blob/v0.1.1/native_client
 However, the artifact expired, we should rebuid it. 
 
-Enter the DeepSpeech original github site [DeepSpeech_v0.1.1]https://github.com/mozilla/DeepSpeech/tree/v0.1.1
+Enter the DeepSpeech original github site https://github.com/mozilla/DeepSpeech/tree/v0.1.1
 You can install deepspeech by following the steps from the link above.
 
 If you rebuild DeepSpeech v0.1.1 execute Detect_DeepSpeech.py
